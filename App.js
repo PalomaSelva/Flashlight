@@ -1,11 +1,12 @@
 import React from 'react';
-import {View, SafeAreaView,StatusBar,Text,Image, StyleSheet} from 'react-native';
+import {View, SafeAreaView,StatusBar,Text,Image, StyleSheet, TouchableOpacity} from 'react-native';
 const App = ()=>{
   const toggle = true;  
 return  (
     <SafeAreaView style={ toggle ? style.container_light_on : style.container_light_off}>  
       <StatusBar barStyle='dark-content' translucent={true} backgroundColor={'transparent'}/>
       <View>
+        <TouchableOpacity onPress={()=>{}}>
         <Image style={ toggle ? style.img : style.img_Off} source={
           toggle 
           ? require('./assets/icons/eco-light.png') 
@@ -18,6 +19,7 @@ return  (
           : require('./assets/icons/logo-dio-white.png')
         }/>
        
+        </TouchableOpacity>
       </View>
     </SafeAreaView> 
 )
