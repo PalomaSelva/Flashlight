@@ -22,7 +22,6 @@ return  (
     </SafeAreaView> 
 )
 }
-
 export default App;
 
 const style = StyleSheet.create({
