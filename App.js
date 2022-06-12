@@ -1,25 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, SafeAreaView,StatusBar,Text,Image, StyleSheet, TouchableOpacity} from 'react-native';
+
 const App = ()=>{
-  const toggle = true;  
-return  (
+
+  let [toggle, setToggle]= useState(false); 
+  const handleChangeToggle = ()=>  setToggle(oldToggle => !oldToggle)
+ 
+  return  (
     <SafeAreaView style={ toggle ? style.container_light_on : style.container_light_off}>  
       <StatusBar barStyle='dark-content' translucent={true} backgroundColor={'transparent'}/>
       <View>
-        <TouchableOpacity onPress={()=>{}}>
-        <Image style={ toggle ? style.img : style.img_Off} source={
-          toggle 
-          ? require('./assets/icons/eco-light.png') 
-          : require('./assets/icons/eco-light-off.png')
-        }/>
+      
+          <TouchableOpacity onPress={
 
-        <Image style={ toggle ? style.img : style.img_Off} source={
-          toggle 
-          ? require('./assets/icons/logo-dio.png') 
-          : require('./assets/icons/logo-dio-white.png')
-        }/>
+            handleChangeToggle
+
+          }>
+
+            <Image style={ toggle ? style.img : style.img_Off} source={
+              toggle 
+              ? require('./assets/icons/eco-light.png') 
+              : require('./assets/icons/eco-light-off.png')
+            }/>
+
+            <Image style={ toggle ? style.img : style.img_Off} source={
+              toggle 
+              ? require('./assets/icons/logo-dio.png') 
+              : require('./assets/icons/logo-dio-white.png')
+            }/>
        
-        </TouchableOpacity>
+           </TouchableOpacity>
       </View>
     </SafeAreaView> 
 )
