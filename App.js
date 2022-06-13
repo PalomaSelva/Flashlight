@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {View, SafeAreaView,StatusBar,Image, StyleSheet, TouchableOpacity} from 'react-native';
 import Torch from 'react-native-torch';
-
+import RNShake from 'react-native-shake';
 const App = () => {
   const [toggle, setToggle] = useState(false); 
   const handleChangeToggle = () => setToggle(oldToggle => !oldToggle); //Alterna os containers
@@ -10,6 +10,14 @@ const App = () => {
     // Liga flash do celular
     Torch.switchState(toggle); //Trocar o estado do flash 
   },[toggle]);
+
+//Quando o celular for chacoalhado, o toggle irá mudar ---- Quando cachoalhar a lanterna vai ligar/desligar
+  useEffect(()=>{
+    const substription=RNShake.addListener(()=>{
+      setToggle(oldToggle => !oldToggle)
+    });
+    return ()=>substription.remove()
+});
 
   return  (
     <SafeAreaView style={ toggle ? style.container_light_on : style.container_light_off}>  
