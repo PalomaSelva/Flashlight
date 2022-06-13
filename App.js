@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
-import {View, SafeAreaView,StatusBar,Text,Image, StyleSheet, TouchableOpacity} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import {View, SafeAreaView,StatusBar,Image, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 
 const App = ()=>{
 
   let [toggle, setToggle]= useState(false); 
-  const handleChangeToggle = ()=>  setToggle(oldToggle => !oldToggle)
- 
+  const handleChangeToggle = ()=>  setToggle(oldToggle => !oldToggle) //Para alternar entre os containers
+  
+  useEffect(()=>{
+    Alert.alert('Desmontou o componente '+toggle)
+    //return()=> Alert.alert('Desmontou o componente '+toggle)
+  }
+  )
+
   return  (
     <SafeAreaView style={ toggle ? style.container_light_on : style.container_light_off}>  
       <StatusBar barStyle='dark-content' translucent={true} backgroundColor={'transparent'}/>
