@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import {View, SafeAreaView,StatusBar,Image, StyleSheet, TouchableOpacity, Alert} from 'react-native';
+import {View, SafeAreaView,StatusBar,Image, StyleSheet, TouchableOpacity} from 'react-native';
+import Torch from 'react-native-torch';
 
-const App = ()=>{
+const App = () => {
+  const [toggle, setToggle] = useState(false); 
+  const handleChangeToggle = () => setToggle(oldToggle => !oldToggle); //Alterna os containers
 
-  let [toggle, setToggle]= useState(false); 
-  const handleChangeToggle = ()=>  setToggle(oldToggle => !oldToggle) //Para alternar entre os containers
-  
-  useEffect(()=>{  //Liga/Desliga lanterna
-  //return()=> Alert.alert('Desmontou o componente '+toggle)    
-  //Alert.alert('Atualiza o componente ' +toggle)
-    },[toggle]
-  )
+  useEffect(() => {
+    // Liga flash do celular
+    Torch.switchState(toggle); //Trocar o estado do flash 
+  },[toggle]);
 
   return  (
     <SafeAreaView style={ toggle ? style.container_light_on : style.container_light_off}>  
