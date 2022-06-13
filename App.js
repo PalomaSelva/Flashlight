@@ -6,10 +6,10 @@ const App = ()=>{
   let [toggle, setToggle]= useState(false); 
   const handleChangeToggle = ()=>  setToggle(oldToggle => !oldToggle) //Para alternar entre os containers
   
-  useEffect(()=>{
-    Alert.alert('Desmontou o componente '+toggle)
-    //return()=> Alert.alert('Desmontou o componente '+toggle)
-  }
+  useEffect(()=>{  //Liga/Desliga lanterna
+  //return()=> Alert.alert('Desmontou o componente '+toggle)    
+  //Alert.alert('Atualiza o componente ' +toggle)
+    },[toggle]
   )
 
   return  (
