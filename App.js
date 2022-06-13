@@ -32,16 +32,10 @@ const App = () => {
 
             <Image style={ toggle ? style.img : style.img_Off} source={
               toggle 
-              ? require('./assets/icons/eco-light.png') 
+              ? require('./assets/icons/eco-lightt.png') 
               : require('./assets/icons/eco-light-off.png')
             }/>
 
-            <Image style={ toggle ? style.img : style.img_Off} source={
-              toggle 
-              ? require('./assets/icons/logo-dio.png') 
-              : require('./assets/icons/logo-dio-white.png')
-            }/>
-       
            </TouchableOpacity>
       </View>
     </SafeAreaView> 
