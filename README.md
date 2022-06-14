@@ -5,4 +5,4 @@
   - Lanterna liga/desliga ao apertar na figura da lanterna
   - Lanterna liga/desliga ao chacoalhar o aparelho
 
-
+![Lanterna Desligada](assets/img/dark.png)
